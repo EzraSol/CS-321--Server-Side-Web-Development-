@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>the BookNook</title>
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Styles/MasterPageStyles.css" rel="stylesheet" />
+    <link href="Styles/StyleSheet.css" rel="stylesheet" />
+
+    <meta name="description" content="The description of my page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="container-fluid">
+
+        <div class="col-sm-12">
+        <div class="row">
+            <div class="header">
+                <div class="banner">
+                    <img src="Images/logo.png" alt="logo which says the book nook" />
+                </div>
+
+                <div class="Logout">
+                     <asp:Button ID="BtnLogout" runat="server" Text="Logout" OnClick="BtnLogout_Click" CssClass="btn" />
+                   </div>
+    	    </div>
+        </div>
+        </div>
+
+       
+<div class="col-sm-12" >
+            <div class="row">
+    	        <div class="topNav">
+                    <nav class="navbar navbar-default">
+                        <div class="navFormat">
+                            <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" />
+                            <asp:Menu ID="NavMenu" runat="server" DataSourceID="SiteMapDataSourceMenu" StaticDisplayLevels="2" 
+                                EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" CssClass="navbar navbar"  
+                                StaticMenuStyle-CssClass="nav" StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown-menu">
+                                <StaticMenuItemStyle Width="7em" Height=".0em" BackColor="LightGray" ForeColor="DarkBlue" />
+                                <DynamicMenuItemStyle VerticalPadding=".5em" BackColor="LightGray" ForeColor="DarkBlue" Width="9.1em"  />
+                                <StaticSelectedStyle ForeColor="Black"  />
+                                <DynamicSelectedStyle ForeColor="Black"  />                              
+                                 </asp:Menu>
+                        </div>
+                    </nav>
+    	        </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+        <div class="row">
+            <div class="body">
+                <asp:ContentPlaceHolder id="ContentBody" runat="server">
+             
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-sm-12">
+        <div class="row">
+    	    <div class="footerNav">
+        	    <asp:SiteMapDataSource id="SiteMapDataSource1" runat="server" />
+                <asp:SiteMapPath ID="SiteMapPath2" runat="server" DataSourceID="nav1" PathSeparator=" | ">
+                    
+                </asp:SiteMapPath>
+    	    </div>
+        </div>
+        </div>       
+
+        <div class="col-sm-12">
+        <div class="row">
+            <div class="footer">
+                <footer>The Booknook Copyright 2015</footer>
+            </div>
+        </div>
+        </div>
+      
+    </div>
+    </form>
+</body>
+</html>
